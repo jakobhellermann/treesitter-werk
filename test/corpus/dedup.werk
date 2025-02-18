@@ -1,0 +1,182 @@
+===
+./dedup.werk
+===
+
+let a = "a" | dedup | assert-eq "a"
+let b = ["b"] | dedup | assert-eq ["b"]
+let c = ["c", "c"] | dedup | assert-eq ["c"]
+let d = ["d", ["d", ["d"]]] | dedup | assert-eq ["d"]
+let abcd = ["a", ["b", "a"], ["c", "d"], "d"] | dedup | assert-eq ["a", "b", "c", "d"]
+
+let a = "a" | "{:dedup}" | assert-eq "a"
+let b = ["b"] | "{,*:dedup}" | assert-eq "b"
+let c = ["c", "c"] | "{,*:dedup}" | assert-eq "c"
+let d = ["d", ["d", ["d"]]] | "{,*:dedup}" | assert-eq "d"
+let abcd = ["a", ["b", "a"], ["c", "d"], "d"] | "{,*:dedup}" | assert-eq "a,b,c,d"
+
+---
+
+(source_file
+  (let_statement
+    (identifier)
+    (literal
+      (string))
+    (builtin_operator)
+    (builtin_operator
+      (literal
+        (string))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))))
+    (builtin_operator)
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (string))))
+    (builtin_operator)
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (list
+                (literal
+                  (string))))))))
+    (builtin_operator)
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (string))))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (string))))
+        (literal
+          (string))))
+    (builtin_operator)
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (literal
+      (string))
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (string))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))))
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (string))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (string))))
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (string))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (list
+                (literal
+                  (string))))))))
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (string))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (string))))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (string))))
+        (literal
+          (string))))
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (string)))))

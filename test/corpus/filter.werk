@@ -1,0 +1,120 @@
+===
+./filter.werk
+===
+
+let input = ["a.c", "b.cpp"]
+let result = input
+    | filter "%.c"
+    | assert-eq ["a.c"]
+let result = input
+    | filter "%.(c|cpp)"
+    | assert-eq ["a.c", "b.cpp"]
+let result = input
+    | filter "%.(a|b)"
+    | assert-eq []
+
+# recursive, flattens implicitly
+let input = ["a.c", ["b.c", ["c.c", "d.c"]]]
+let result = input
+    | filter "%.c"
+    | assert-eq ["a.c", "b.c", "c.c", "d.c"]
+
+let input = ["a.c", "b.cpp"]
+let result = input
+    | filter-match "%.c" => "{%}.o"
+    | assert-eq ["a.o"]
+
+---
+
+(source_file
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (string)))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (pattern))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (pattern))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (pattern))
+    (builtin_operator
+      (literal
+        (list))))
+  (comment)
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (list
+                (literal
+                  (string))
+                (literal
+                  (string)))))))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (pattern))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (string)))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (pattern)
+      (literal
+        (string)))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string)))))))

@@ -1,0 +1,39 @@
+===
+./nested_patterns.werk
+===
+
+let foo = "a"
+let bar = foo | match {
+    "%" => "a" | match {
+        # Get the stem from the outer pattern.
+        "{%}" => "b"
+        "%" => error "fail"
+    }
+} | assert-eq "b"
+
+---
+
+(source_file
+  (let_statement
+    (identifier)
+    (literal
+      (string)))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (pattern)
+      (literal
+        (string))
+      (builtin_operator
+        (comment)
+        (pattern)
+        (literal
+          (string))
+        (pattern)
+        (builtin_expression
+          (literal
+            (string)))))
+    (builtin_operator
+      (literal
+        (string)))))

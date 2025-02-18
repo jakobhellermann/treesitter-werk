@@ -1,0 +1,20 @@
+===
+./read.werk
+===
+
+let file-contents = read "foo" | assert-eq "bar"
+
+#!file foo=bar
+
+---
+
+(source_file
+  (let_statement
+    (identifier)
+    (builtin_expression
+      (literal
+        (string)))
+    (builtin_operator
+      (literal
+        (string))))
+  (comment))

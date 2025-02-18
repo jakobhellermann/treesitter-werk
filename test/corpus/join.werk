@@ -1,0 +1,59 @@
+===
+./join.werk
+===
+
+let input = ["a.c", "b.cpp"]
+let result = input
+    | join "\n"
+    | assert-eq "a.c\nb.cpp"
+
+# recursive
+let input = ["a.c", ["b.c", ["c.c", "d.c"]]]
+let result = input
+    | join "--"
+    | assert-eq "a.c--b.c--c.c--d.c"
+
+---
+
+(source_file
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (string)))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (string))))
+  (comment)
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (list
+            (literal
+              (string))
+            (literal
+              (list
+                (literal
+                  (string))
+                (literal
+                  (string)))))))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (string)))))

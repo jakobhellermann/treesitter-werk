@@ -1,0 +1,37 @@
+===
+./copy.werk
+===
+
+default target = "bar"
+
+build "bar" {
+    from "foo"
+    run {
+        copy "{in}" to "{out}"
+    }
+}
+
+#!file foo=hello
+#!assert-file bar=hello
+
+---
+
+(source_file
+  (default_statement
+    (key
+      (identifier))
+    (value))
+  (build_recipe
+    (pattern)
+    (from_statement
+      (literal
+        (string)))
+    (run_statement
+      (run_expression
+        (recipe_command
+          (literal
+            (string))
+          (literal
+            (string))))))
+  (comment)
+  (comment))

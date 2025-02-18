@@ -1,0 +1,30 @@
+===
+./discard.werk
+===
+
+let input = ["a.c", "b.cpp"]
+let result = input
+    | discard "%.c"
+    | assert-eq ["b.cpp"]
+
+---
+
+(source_file
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (string)))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (pattern))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string)))))))

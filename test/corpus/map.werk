@@ -1,0 +1,62 @@
+===
+./map.werk
+===
+
+# map recursive list
+let input = ["a", ["b"]];
+let result = input
+    | map "hello {}"
+    | assert-eq ["hello a", ["hello b"]]
+
+# map string
+let input = "a";
+let result = input
+    | map ("hello {}" | assert-eq "hello a")
+    | assert-eq "hello a"
+
+---
+
+(source_file
+  (comment)
+  (let_statement
+    (identifier)
+    (literal
+      (list
+        (literal
+          (string))
+        (literal
+          (list
+            (literal
+              (string)))))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (literal
+        (string)))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))
+          (literal
+            (list
+              (literal
+                (string))))))))
+  (comment)
+  (let_statement
+    (identifier)
+    (literal
+      (string)))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (literal
+        (string))
+      (builtin_operator
+        (literal
+          (string))))
+    (builtin_operator
+      (literal
+        (string)))))

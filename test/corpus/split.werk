@@ -1,0 +1,82 @@
+===
+./split.werk
+===
+
+let input = "a b c d e"
+let result = input
+    | split " "
+    | assert-eq ["a", "b", "c", "d", "e"]
+
+
+let input = "a\nb\nc\nd\r\ne"
+let result = input
+    | split "\n"
+    | assert-eq ["a", "b", "c", "d\r", "e"]
+let result = input
+    | lines
+    | assert-eq ["a", "b", "c", "d", "e"]
+
+---
+
+(source_file
+  (let_statement
+    (identifier)
+    (literal
+      (string)))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (literal
+      (string)))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator
+      (string))
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))))))
+  (let_statement
+    (identifier)
+    (identifier)
+    (builtin_operator)
+    (builtin_operator
+      (literal
+        (list
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string))
+          (literal
+            (string)))))))

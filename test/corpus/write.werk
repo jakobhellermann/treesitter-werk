@@ -1,0 +1,31 @@
+===
+./write.werk
+===
+
+default target = "foo"
+
+build "foo" {
+    run {
+        write "bar" to "{out}"
+    }
+}
+
+#!assert-file foo=bar
+
+---
+
+(source_file
+  (default_statement
+    (key
+      (identifier))
+    (value))
+  (build_recipe
+    (pattern)
+    (run_statement
+      (run_expression
+        (recipe_command
+          (literal
+            (string))
+          (literal
+            (string))))))
+  (comment))
