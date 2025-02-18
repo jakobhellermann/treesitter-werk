@@ -5,10 +5,11 @@
       "camelcase": "Werkfile",
       "scope": "source.werkfile",
       "file-types": [
-        "build.werk",
+        "werk",
         "werkfile",
         "Werkfile"
       ],
+      "highlights": "queries/highlights.scm",
       "injection-regex": "^werkfile$"
     }
   ],
